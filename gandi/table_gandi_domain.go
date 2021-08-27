@@ -31,6 +31,8 @@ func tableGandiDomain() *plugin.Table {
 			{Name: "nameserver_current", Type: proto.ColumnType_STRING, Transform: transform.FromField("NameServerConfig.Current"), Description: ""},
 			{Name: "auto_renew", Type: proto.ColumnType_BOOL, Description: ""},
 			{Name: "sharing_id", Type: proto.ColumnType_STRING, Transform: transform.FromField("SharingID"), Description: ""},
+			{Name: "status", Type: proto.ColumnType_JSON, Description: ""},
+			{Name: "tags", Type: proto.ColumnType_JSON, Description: ""},
 			{Name: "registry_created_at", Type: proto.ColumnType_DATETIME, Transform: transform.FromField("Dates.RegistryCreatedAt"), Description: ""},
 			{Name: "created_at", Type: proto.ColumnType_DATETIME, Transform: transform.FromField("Dates.CreatedAt"), Description: ""},
 			{Name: "updated_at", Type: proto.ColumnType_DATETIME, Transform: transform.FromField("Dates.UpdatedAt"), Description: ""},
