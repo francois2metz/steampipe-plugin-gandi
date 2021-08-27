@@ -8,9 +8,9 @@ import (
 	"github.com/turbot/steampipe-plugin-sdk/plugin/transform"
 )
 
-func tableGandiDomains() *plugin.Table {
+func tableGandiDomain() *plugin.Table {
 	return &plugin.Table{
-		Name:        "gandi_domains",
+		Name:        "gandi_domain",
 		Description: "List gandi domains",
 		List: &plugin.ListConfig{
 			Hydrate: listDomain,
