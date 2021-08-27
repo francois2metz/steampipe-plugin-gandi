@@ -5,8 +5,8 @@ import (
 	"errors"
 	"os"
 
-        "github.com/go-gandi/go-gandi"
-        "github.com/go-gandi/go-gandi/domain"
+	"github.com/go-gandi/go-gandi"
+	"github.com/go-gandi/go-gandi/domain"
 	"github.com/turbot/steampipe-plugin-sdk/plugin"
 )
 
