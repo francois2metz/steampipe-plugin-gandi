@@ -15,10 +15,6 @@ func tableGandiDomain() *plugin.Table {
 		List: &plugin.ListConfig{
 			Hydrate: listDomain,
 		},
-		Get: &plugin.GetConfig{
-			KeyColumns: plugin.SingleColumn("name"),
-			Hydrate:    getDomain,
-		},
 		Columns: []*plugin.Column{
 			{Name: "id", Type: proto.ColumnType_STRING, Description: "unique id of the domain"},
 			{Name: "fqdn", Type: proto.ColumnType_STRING, Transform: transform.FromField("FQDN"), Description: ""},
@@ -61,18 +57,4 @@ func listDomain(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData)
 		d.StreamListItem(ctx, domain)
 	}
 	return nil, nil
-}
-
-func getDomain(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData) (interface{}, error) {
-	client, err := connect(ctx, d)
-	if err != nil {
-		return nil, err
-	}
-	quals := d.KeyColumnQuals
-	name := quals["name"].GetStringValue()
-	result, err := client.GetDomain(name)
-	if err != nil {
-		return nil, err
-	}
-	return result, nil
 }
