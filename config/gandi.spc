@@ -1,6 +1,6 @@
 connection "gandi" {
     plugin = "francois2metz/gandi"
 
-    # The API Key
+    # The API Key (get it on your account: https://account.gandi.net/)
     apikey = "YOUR_GANDI_API_KEY"
 }
