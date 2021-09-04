@@ -1,11 +1,12 @@
 ---
 organization: francois2metz
 category: ["public cloud"]
-brand_color: "#FF9900"
+brand_color: "#0d0b30"
 display_name: "Gandi"
 short_name: "Gandi"
 description: "Steampipe plugin for querying your domains on Gandi."
 og_description: "Query Gandi with SQL! Open source CLI. No DB required."
+icon_url: "/images/plugins/francois2metz/gandi.svg"
 ---
 
 # Gandi + Steampipe
