@@ -11,6 +11,12 @@ import (
 )
 
 func connect(ctx context.Context, d *plugin.QueryData) (*domain.Domain, error) {
+	// get gandi client from cache
+	cacheKey := "gandi"
+	if cachedData, ok := d.ConnectionManager.Cache.Get(cacheKey); ok {
+		return cachedData.(*domain.Domain), nil
+	}
+
 	apikey := os.Getenv("GANDI_APIKEY")
 
 	gandiConfig := GetConfig(d.Connection)
@@ -25,5 +31,10 @@ func connect(ctx context.Context, d *plugin.QueryData) (*domain.Domain, error) {
 	}
 
 	config := gandi.Config{}
-	return gandi.NewDomainClient(apikey, config), nil
+	client := gandi.NewDomainClient(apikey, config)
+
+	// Save to cache
+	d.ConnectionManager.Cache.Set(cacheKey, client)
+
+	return client, nil
 }
