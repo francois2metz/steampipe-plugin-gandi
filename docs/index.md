@@ -19,9 +19,9 @@ For example:
 
 ```sql
 select
-    fqdn,
-    tld,
-    owner
+  fqdn,
+  tld,
+  owner
 from
   gandi_domain
 ```
@@ -55,10 +55,10 @@ Installing the latest gandi plugin will create a config file (`~/.steampipe/conf
 
 ```hcl
 connection "gandi" {
-  plugin    = "francois2metz/gandi"
+  plugin = "francois2metz/gandi"
 
   # The API Key (get it on your account: https://account.gandi.net/)
-  apikey      = "YOUR_GANDI_API_KEY"
+  apikey = "YOUR_GANDI_API_KEY"
 }
 ```
 
