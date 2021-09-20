@@ -16,7 +16,7 @@ func tableGandiDomain() *plugin.Table {
 			Hydrate: listDomain,
 		},
 		Columns: []*plugin.Column{
-			{Name: "id", Type: proto.ColumnType_STRING, Description: "Ynique id of the domain."},
+			{Name: "id", Type: proto.ColumnType_STRING, Description: "Unique id of the domain."},
 			{Name: "fqdn", Type: proto.ColumnType_STRING, Transform: transform.FromField("FQDN"), Description: "Fully qualified domain name, written in its native alphabet (IDN)."},
 			{Name: "fqdn_unicode", Type: proto.ColumnType_STRING, Transform: transform.FromField("FQDNUnicode"), Description: "Fully qualified domain name, written in unicode."},
 			{Name: "tld", Type: proto.ColumnType_STRING, Transform: transform.FromField("TLD"), Description: "The top-level domain."},
