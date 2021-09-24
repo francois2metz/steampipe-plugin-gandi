@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/go-gandi/go-gandi v0.0.0-20200921091836-0d8a64b9cc09
-	github.com/turbot/steampipe-plugin-sdk v1.5.0
+	github.com/turbot/steampipe-plugin-sdk v1.6.1
 )
 
 require (
