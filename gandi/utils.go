@@ -17,21 +17,21 @@ func connect(ctx context.Context, d *plugin.QueryData) (*domain.Domain, error) {
 		return cachedData.(*domain.Domain), nil
 	}
 
-	apikey := os.Getenv("GANDI_APIKEY")
+	key := os.Getenv("GANDI_KEY")
 
 	gandiConfig := GetConfig(d.Connection)
 	if &gandiConfig != nil {
-		if gandiConfig.Apikey != nil {
-			apikey = *gandiConfig.Apikey
+		if gandiConfig.Key != nil {
+			key = *gandiConfig.Key
 		}
 	}
 
-	if apikey == "" {
-		return nil, errors.New("'apikey' must be set in the connection configuration. Edit your connection configuration file and then restart Steampipe")
+	if key == "" {
+		return nil, errors.New("'key' must be set in the connection configuration. Edit your connection configuration file and then restart Steampipe")
 	}
 
 	config := gandi.Config{}
-	client := gandi.NewDomainClient(apikey, config)
+	client := gandi.NewDomainClient(key, config)
 
 	// Save to cache
 	d.ConnectionManager.Cache.Set(cacheKey, client)

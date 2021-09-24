@@ -58,13 +58,13 @@ connection "gandi" {
   plugin = "francois2metz/gandi"
 
   # The API Key (get it on your account: https://account.gandi.net/)
-  apikey = "YOUR_GANDI_API_KEY"
+  key = "YOUR_GANDI_API_KEY"
 }
 ```
 
 You can also use environment variables:
 
-- `GANDI_API_KEY`: Your Gandi API Key
+- `GANDI_KEY`: Your Gandi API Key
 
 ## Get Involved
 
