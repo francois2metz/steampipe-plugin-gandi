@@ -1,6 +1,6 @@
 ---
 organization: francois2metz
-category: ["public cloud"]
+category: ["internet"]
 brand_color: "#0d0b30"
 display_name: "Gandi"
 short_name: "Gandi"
