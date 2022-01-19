@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/go-gandi/go-gandi"
+	"github.com/go-gandi/go-gandi/config"
 	"github.com/go-gandi/go-gandi/domain"
 	"github.com/turbot/steampipe-plugin-sdk/plugin"
 )
@@ -30,8 +31,8 @@ func connect(ctx context.Context, d *plugin.QueryData) (*domain.Domain, error) {
 		return nil, errors.New("'key' must be set in the connection configuration. Edit your connection configuration file and then restart Steampipe")
 	}
 
-	config := gandi.Config{}
-	client := gandi.NewDomainClient(key, config)
+	config := config.Config{APIKey: key}
+	client := gandi.NewDomainClient(config)
 
 	// Save to cache
 	d.ConnectionManager.Cache.Set(cacheKey, client)

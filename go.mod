@@ -3,7 +3,7 @@ module github.com/francois2metz/steampipe-plugin-gandi
 go 1.17
 
 require (
-	github.com/go-gandi/go-gandi v0.0.0-20200921091836-0d8a64b9cc09
+	github.com/go-gandi/go-gandi v0.1.0
 	github.com/turbot/steampipe-plugin-sdk v1.6.1
 )
 
@@ -32,6 +32,7 @@ require (
 	github.com/mitchellh/mapstructure v1.3.3 // indirect
 	github.com/oklog/run v1.0.0 // indirect
 	github.com/olekukonko/tablewriter v0.0.4 // indirect
+	github.com/peterhellberg/link v1.1.0 // indirect
 	github.com/sethvargo/go-retry v0.1.0 // indirect
 	github.com/stevenle/topsort v0.0.0-20130922064739-8130c1d7596b // indirect
 	github.com/tkrajina/go-reflector v0.5.4 // indirect
@@ -44,4 +45,5 @@ require (
 	google.golang.org/grpc v1.33.1 // indirect
 	google.golang.org/protobuf v1.25.0 // indirect
 	gopkg.in/yaml.v2 v2.2.2 // indirect
+	moul.io/http2curl v1.0.0 // indirect
 )
