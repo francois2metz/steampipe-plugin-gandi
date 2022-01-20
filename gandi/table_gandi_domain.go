@@ -23,7 +23,6 @@ func tableGandiDomain() *plugin.Table {
 			{Name: "domain_owner", Type: proto.ColumnType_STRING, Description: "The full name of the owner."},
 			{Name: "orga_owner", Type: proto.ColumnType_STRING, Description: "The username of the organization owner."},
 			{Name: "owner", Type: proto.ColumnType_STRING, Description: "The username of the owner."},
-			{Name: "nameserver_current", Type: proto.ColumnType_STRING, Transform: transform.FromField("NameServerConfig.Current"), Description: ""},
 			{Name: "auto_renew", Type: proto.ColumnType_BOOL, Description: "Automatic renewal status."},
 			{Name: "sharing_id", Type: proto.ColumnType_STRING, Transform: transform.FromField("SharingID"), Description: "The id of the organization."},
 			{Name: "status", Type: proto.ColumnType_JSON, Description: "The status of the domain."},
@@ -32,13 +31,10 @@ func tableGandiDomain() *plugin.Table {
 			{Name: "dates_created_at", Type: proto.ColumnType_TIMESTAMP, Transform: transform.FromField("Dates.CreatedAt"), Description: "The date the domain started to be handled by Gandi."},
 			{Name: "dates_updated_at", Type: proto.ColumnType_TIMESTAMP, Transform: transform.FromField("Dates.UpdatedAt"), Description: "The last update date."},
 			{Name: "dates_deletes_at", Type: proto.ColumnType_TIMESTAMP, Transform: transform.FromField("Dates.DeletesAt"), Description: "The date on which the domain will be deleted at the registry."},
-			{Name: "dates_auth_info_expires_at", Type: proto.ColumnType_TIMESTAMP, Transform: transform.FromField("Dates.AuthInfoExpiresAt"), Description: ""},
 			{Name: "dates_hold_begins_at", Type: proto.ColumnType_TIMESTAMP, Transform: transform.FromField("Dates.HoldBeginsAt"), Description: "The date from which the domain is held."},
 			{Name: "dates_hold_ends_at", Type: proto.ColumnType_TIMESTAMP, Transform: transform.FromField("Dates.HoldEndsAt"), Description: "The date from which the domain can’t be renewed anymore (the domain can be restored if the registry supports redemption period otherwise the domain might be destroyed at Gandi at that date)."},
 			{Name: "dates_pending_delete_ends_at", Type: proto.ColumnType_TIMESTAMP, Transform: transform.FromField("Dates.PendingDeleteEndsAt"), Description: "The date from which the domain will be available after a deletion."},
 			{Name: "dates_registry_ends_at", Type: proto.ColumnType_TIMESTAMP, Transform: transform.FromField("Dates.RegistryEndsAt"), Description: ""},
-			{Name: "dates_renew_begins_at", Type: proto.ColumnType_TIMESTAMP, Transform: transform.FromField("Dates.RenewBeginsAt"), Description: "The date from which the domain can be renewed."},
-			{Name: "dates_renew_ends_at", Type: proto.ColumnType_TIMESTAMP, Transform: transform.FromField("Dates.RenewEndsAt"), Description: ""},
 		},
 	}
 }
