@@ -3,6 +3,7 @@ package gandi
 import (
 	"context"
 
+	"github.com/go-gandi/go-gandi"
 	"github.com/turbot/steampipe-plugin-sdk/grpc/proto"
 	"github.com/turbot/steampipe-plugin-sdk/plugin"
 	"github.com/turbot/steampipe-plugin-sdk/plugin/transform"
@@ -40,7 +41,9 @@ func tableGandiDomain() *plugin.Table {
 }
 
 func listDomain(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData) (interface{}, error) {
-	client, err := connect(ctx, d)
+	config, err := connect(ctx, d)
+	client := gandi.NewDomainClient(*config)
+
 	if err != nil {
 		return nil, err
 	}
