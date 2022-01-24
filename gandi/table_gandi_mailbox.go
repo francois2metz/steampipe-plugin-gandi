@@ -9,13 +9,17 @@ import (
 	"github.com/turbot/steampipe-plugin-sdk/plugin/transform"
 )
 
-func tableGandiEmail() *plugin.Table {
+func tableGandiMailbox() *plugin.Table {
 	return &plugin.Table{
-		Name:        "gandi_email",
-		Description: "List gandi email.",
+		Name:        "gandi_mailbox",
+		Description: "List gandi mailboxes.",
 		List: &plugin.ListConfig{
 			KeyColumns: plugin.SingleColumn("domain"),
-			Hydrate:    listEmail,
+			Hydrate:    listMailbox,
+		},
+		Get: &plugin.GetConfig{
+			KeyColumns: plugin.AllColumns([]string{"domain", "id"}),
+			Hydrate:    getMailbox,
 		},
 		Columns: []*plugin.Column{
 			{Name: "domain", Type: proto.ColumnType_STRING, Transform: transform.FromQual("domain"), Description: "Domain name."},
@@ -31,7 +35,7 @@ func tableGandiEmail() *plugin.Table {
 	}
 }
 
-func listEmail(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData) (interface{}, error) {
+func listMailbox(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData) (interface{}, error) {
 	config, err := connect(ctx, d)
 	client := gandi.NewEmailClient(*config)
 
@@ -47,4 +51,22 @@ func listEmail(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData) 
 		d.StreamListItem(ctx, mailbox)
 	}
 	return nil, nil
+}
+
+func getMailbox(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData) (interface{}, error) {
+	config, err := connect(ctx, d)
+	client := gandi.NewEmailClient(*config)
+	if err != nil {
+		return nil, err
+	}
+	quals := d.KeyColumnQuals
+
+	id := quals["id"].GetStringValue()
+	domain := quals["domain"].GetStringValue()
+
+	result, err := client.GetMailbox(domain, id)
+	if err != nil {
+		return nil, err
+	}
+	return result, nil
 }

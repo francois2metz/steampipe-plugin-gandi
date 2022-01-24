@@ -16,8 +16,8 @@ func Plugin(ctx context.Context) *plugin.Plugin {
 			Schema:      ConfigSchema,
 		},
 		TableMap: map[string]*plugin.Table{
-			"gandi_domain": tableGandiDomain(),
-			"gandi_email":  tableGandiEmail(),
+			"gandi_domain":  tableGandiDomain(),
+			"gandi_mailbox": tableGandiMailbox(),
 		},
 	}
 	return p
