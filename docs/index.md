@@ -4,7 +4,7 @@ category: ["internet"]
 brand_color: "#060614"
 display_name: "Gandi"
 short_name: "Gandi"
-description: "Steampipe plugin for querying your domains on Gandi."
+description: "Steampipe plugin for querying your domains and more from Gandi."
 og_description: "Query Gandi with SQL! Open source CLI. No DB required."
 icon_url: "/images/plugins/francois2metz/gandi.svg"
 ---

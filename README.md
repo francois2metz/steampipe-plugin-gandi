@@ -1,6 +1,6 @@
 # Steampipe plugin for Gandi
 
-Use SQL to query your domains from [Gandi][].
+Use SQL to query your domains and more from [Gandi][].
 
 - **[Get started →](docs/index.md)**
 - Documentation: [Table definitions & examples](docs/tables)
