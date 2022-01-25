@@ -16,9 +16,10 @@ func Plugin(ctx context.Context) *plugin.Plugin {
 			Schema:      ConfigSchema,
 		},
 		TableMap: map[string]*plugin.Table{
-			"gandi_domain":  tableGandiDomain(),
-			"gandi_forward": tableGandiForward(),
-			"gandi_mailbox": tableGandiMailbox(),
+			"gandi_domain":          tableGandiDomain(),
+			"gandi_forward":         tableGandiForward(),
+			"gandi_mailbox":         tableGandiMailbox(),
+			"gandi_web_redirection": tableGandiWebRedirection(),
 		},
 	}
 	return p
