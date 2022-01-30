@@ -16,6 +16,10 @@ func tableGandiCertificate() *plugin.Table {
 		List: &plugin.ListConfig{
 			Hydrate: listCertificate,
 		},
+		Get: &plugin.GetConfig{
+			KeyColumns: plugin.SingleColumn("id"),
+			Hydrate:    getCertificate,
+		},
 		Columns: []*plugin.Column{
 			{Name: "id", Type: proto.ColumnType_STRING, Description: "UUID."},
 			{Name: "cn", Type: proto.ColumnType_STRING, Transform: transform.FromField("CN"), Description: "Common Name."},
@@ -40,4 +44,19 @@ func listCertificate(ctx context.Context, d *plugin.QueryData, _ *plugin.Hydrate
 		d.StreamListItem(ctx, certificate)
 	}
 	return nil, nil
+}
+
+func getCertificate(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData) (interface{}, error) {
+	config, err := connect(ctx, d)
+	client := gandi.NewCertificateClient(*config)
+	if err != nil {
+		return nil, err
+	}
+	id := d.KeyColumnQuals["id"].GetStringValue()
+
+	result, err := client.GetCertificate(id)
+	if err != nil {
+		return nil, err
+	}
+	return result, nil
 }
