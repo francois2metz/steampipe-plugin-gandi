@@ -17,6 +17,10 @@ func tableGandiWebRedirection() *plugin.Table {
 			KeyColumns: plugin.SingleColumn("domain"),
 			Hydrate:    listWebRedirection,
 		},
+		Get: &plugin.GetConfig{
+			KeyColumns: plugin.AllColumns([]string{"domain","host"}),
+			Hydrate:    getWebRedirection,
+		},
 		Columns: []*plugin.Column{
 			{Name: "domain", Type: proto.ColumnType_STRING, Transform: transform.FromQual("domain"), Description: "Domain name."},
 
@@ -46,4 +50,22 @@ func listWebRedirection(ctx context.Context, d *plugin.QueryData, _ *plugin.Hydr
 		d.StreamListItem(ctx, redirection)
 	}
 	return nil, nil
+}
+
+func getWebRedirection(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData) (interface{}, error) {
+	config, err := connect(ctx, d)
+	client := gandi.NewDomainClient(*config)
+	if err != nil {
+		return nil, err
+	}
+	quals := d.KeyColumnQuals
+
+	host := quals["host"].GetStringValue()
+	domain := quals["domain"].GetStringValue()
+
+	result, err := client.GetWebRedirection(domain, host)
+	if err != nil {
+		return nil, err
+	}
+	return result, nil
 }
