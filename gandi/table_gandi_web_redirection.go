@@ -23,10 +23,8 @@ func tableGandiWebRedirection() *plugin.Table {
 			{Name: "host", Type: proto.ColumnType_STRING, Description: "Source hostname (including the domain name)."},
 			{Name: "type", Type: proto.ColumnType_STRING, Description: "Type of redirection. One of: 'cloak', 'http301', 'http302'"},
 			{Name: "url", Type: proto.ColumnType_STRING, Description: "Target URL."},
-			{Name: "certificate_status", Type: proto.ColumnType_STRING, Description: ""},
-			{Name: "certificate_uuid", Type: proto.ColumnType_STRING, Description: ""},
-			{Name: "created_at", Type: proto.ColumnType_TIMESTAMP, Description: ""},
-			{Name: "updated_at", Type: proto.ColumnType_TIMESTAMP, Description: ""},
+			{Name: "created_at", Type: proto.ColumnType_TIMESTAMP, Description: "Creation date."},
+			{Name: "updated_at", Type: proto.ColumnType_TIMESTAMP, Description: "Last update date."},
 			{Name: "protocol", Type: proto.ColumnType_STRING, Description: "One of: 'http', 'https', 'httpsonly'."},
 		},
 	}
