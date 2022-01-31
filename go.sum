@@ -43,8 +43,8 @@ github.com/gertd/go-pluralize v0.1.7 h1:RgvJTJ5W7olOoAks97BOwOlekBFsLEyh00W48Z6Z
 github.com/gertd/go-pluralize v0.1.7/go.mod h1:O4eNeeIf91MHh1GJ2I47DNtaesm66NYvjYgAahcqSDQ=
 github.com/ghodss/yaml v1.0.0 h1:wQHKEahhL6wmXdzwWG11gIVCkOv05bNOh+Rxn0yngAk=
 github.com/ghodss/yaml v1.0.0/go.mod h1:4dBDuWmgqj2HViK6kFavaiC9ZROes6MMH2rRYeMEF04=
-github.com/go-gandi/go-gandi v0.1.0 h1:lYPNy6LUJtR76C25pAcwXuos8WbPg+hX6R2ZPm/jf+8=
-github.com/go-gandi/go-gandi v0.1.0/go.mod h1:9NoYyfWCjFosClPiWjkbbRK5UViaZ4ctpT8/pKSSFlw=
+github.com/go-gandi/go-gandi v0.1.1-0.20220131152054-8ada87e22651 h1:q6hljWrqJFL522ZFPV1Miv1qnUk5IMN27xWIkb7v4gc=
+github.com/go-gandi/go-gandi v0.1.1-0.20220131152054-8ada87e22651/go.mod h1:9NoYyfWCjFosClPiWjkbbRK5UViaZ4ctpT8/pKSSFlw=
 github.com/go-test/deep v1.0.3 h1:ZrJSEWsXzPOxaZnFteGEfooLba+ju3FYIbOrS+rQd68=
 github.com/go-test/deep v1.0.3/go.mod h1:wGDj63lr65AM2AQyKZd/NYHGb0R+1RLqB8NKt3aSFNA=
 github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b/go.mod h1:SBH7ygxi8pfUlaOkMMuAQtPIUF8ecWP5IEl/CR7VP2Q=

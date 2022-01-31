@@ -30,7 +30,7 @@ func tableGandiMailbox() *plugin.Table {
 			{Name: "href", Type: proto.ColumnType_STRING, Description: "Link to mailbox details."},
 			{Name: "login", Type: proto.ColumnType_STRING, Description: "Mailbox login."},
 			{Name: "mailbox_type", Type: proto.ColumnType_STRING, Description: "One of: 'standard', 'premium', 'free'."},
-			{Name: "quota_used", Type: proto.ColumnType_INT, Transform: transform.FromField("QuataUsed"), Description: "Quota used."},
+			{Name: "quota_used", Type: proto.ColumnType_INT, Description: "Quota used."},
 		},
 	}
 }
