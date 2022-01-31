@@ -18,7 +18,7 @@ func tableGandiWebRedirection() *plugin.Table {
 			Hydrate:    listWebRedirection,
 		},
 		Get: &plugin.GetConfig{
-			KeyColumns: plugin.AllColumns([]string{"domain","host"}),
+			KeyColumns: plugin.AllColumns([]string{"domain", "host"}),
 			Hydrate:    getWebRedirection,
 		},
 		Columns: []*plugin.Column{
