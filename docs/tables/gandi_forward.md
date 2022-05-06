@@ -4,7 +4,7 @@ The `gandi_forward` table can be used to query information about your email forw
 
 ## Examples
 
-### List forwards of a domain
+### List emails forwards of a domain
 
 ```sql
 select
