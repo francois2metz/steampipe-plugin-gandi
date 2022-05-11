@@ -4,7 +4,7 @@ The `gandi_certificate` table can be used to query information about your certif
 
 ## Examples
 
-### List web redirections of a domain
+### List certificates
 
 ```sql
 select
