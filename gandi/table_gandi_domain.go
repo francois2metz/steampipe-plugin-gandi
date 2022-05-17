@@ -45,10 +45,12 @@ func listDomain(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData)
 	client := gandi.NewDomainClient(*config)
 
 	if err != nil {
+		plugin.Logger(ctx).Error("gandi_domain.listDomain", "connection_error", err)
 		return nil, err
 	}
 	domains, err := client.ListDomains()
 	if err != nil {
+		plugin.Logger(ctx).Error("gandi_domain.listDomain", err)
 		return nil, err
 	}
 	for _, domain := range domains {

@@ -40,11 +40,13 @@ func listMailbox(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData
 	client := gandi.NewEmailClient(*config)
 
 	if err != nil {
+		plugin.Logger(ctx).Error("gandi_mailbox.listMailbox", "connection_error", err)
 		return nil, err
 	}
 	domain := d.KeyColumnQuals["domain"].GetStringValue()
 	mailboxes, err := client.ListMailboxes(domain)
 	if err != nil {
+		plugin.Logger(ctx).Error("gandi_mailbox.listMailbox", err)
 		return nil, err
 	}
 	for _, mailbox := range mailboxes {
@@ -57,6 +59,7 @@ func getMailbox(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData)
 	config, err := connect(ctx, d)
 	client := gandi.NewEmailClient(*config)
 	if err != nil {
+		plugin.Logger(ctx).Error("gandi_mailbox.getMailbox", "connection_error", err)
 		return nil, err
 	}
 	quals := d.KeyColumnQuals
@@ -66,6 +69,7 @@ func getMailbox(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData)
 
 	result, err := client.GetMailbox(domain, id)
 	if err != nil {
+		plugin.Logger(ctx).Error("gandi_mailbox.getMailbox", err)
 		return nil, err
 	}
 	return result, nil

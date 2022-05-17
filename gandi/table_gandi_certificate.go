@@ -34,10 +34,12 @@ func listCertificate(ctx context.Context, d *plugin.QueryData, _ *plugin.Hydrate
 	client := gandi.NewCertificateClient(*config)
 
 	if err != nil {
+		plugin.Logger(ctx).Error("gandi_certificate.listCertificate", "connection_error", err)
 		return nil, err
 	}
 	certificates, err := client.ListCertificates()
 	if err != nil {
+		plugin.Logger(ctx).Error("gandi_certificate.listCertificate", err)
 		return nil, err
 	}
 	for _, certificate := range certificates {
@@ -50,12 +52,14 @@ func getCertificate(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateD
 	config, err := connect(ctx, d)
 	client := gandi.NewCertificateClient(*config)
 	if err != nil {
+		plugin.Logger(ctx).Error("gandi_certificate.getCertificate", "connection_error", err)
 		return nil, err
 	}
 	id := d.KeyColumnQuals["id"].GetStringValue()
 
 	result, err := client.GetCertificate(id)
 	if err != nil {
+		plugin.Logger(ctx).Error("gandi_certificate.getCertificate", err)
 		return nil, err
 	}
 	return result, nil
