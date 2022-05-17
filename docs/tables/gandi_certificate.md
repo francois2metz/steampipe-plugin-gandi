@@ -12,3 +12,14 @@ select
 from
   gandi_certificate
 ```
+
+### List invalid certificates
+
+```sql
+select
+  cn, status
+from
+  gandi_certificate
+where
+  status != 'valid'
+```
