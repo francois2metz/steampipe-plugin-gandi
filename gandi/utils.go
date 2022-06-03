@@ -19,10 +19,9 @@ func connect(ctx context.Context, d *plugin.QueryData) (*config.Config, error) {
 	key := os.Getenv("GANDI_KEY")
 
 	gandiConfig := GetConfig(d.Connection)
-	if &gandiConfig != nil {
-		if gandiConfig.Key != nil {
-			key = *gandiConfig.Key
-		}
+
+	if gandiConfig.Key != nil {
+		key = *gandiConfig.Key
 	}
 
 	if key == "" {
