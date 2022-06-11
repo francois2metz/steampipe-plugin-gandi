@@ -1,3 +1,11 @@
+## v0.0.4 [2022-06-11]
+
+_What's new?_
+
+- Add gandi_livedns_record table
+- Add livedns status, namerserver and dnssec status on the domain
+- Update logo and color
+
 ## v0.0.3 [2022-05-17]
 
 _What's new?_
