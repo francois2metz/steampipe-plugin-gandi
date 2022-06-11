@@ -19,6 +19,7 @@ func Plugin(ctx context.Context) *plugin.Plugin {
 			"gandi_domain":          tableGandiDomain(),
 			"gandi_certificate":     tableGandiCertificate(),
 			"gandi_forward":         tableGandiForward(),
+			"gandi_livedns_record":  tableGandiLivednsRecord(),
 			"gandi_mailbox":         tableGandiMailbox(),
 			"gandi_web_redirection": tableGandiWebRedirection(),
 		},
