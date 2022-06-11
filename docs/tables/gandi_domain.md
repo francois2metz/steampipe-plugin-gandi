@@ -34,3 +34,14 @@ from
 where
   dates_registry_ends_at < now() + interval '1 month';
 ```
+
+### List domains using classic namervers
+
+```sql
+select
+  fqdn
+from
+  gandi_domain
+where
+  livedns_current = 'classic';
+```

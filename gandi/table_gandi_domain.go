@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"github.com/go-gandi/go-gandi"
+	"github.com/go-gandi/go-gandi/domain"
 	"github.com/turbot/steampipe-plugin-sdk/v3/grpc/proto"
 	"github.com/turbot/steampipe-plugin-sdk/v3/plugin"
 	"github.com/turbot/steampipe-plugin-sdk/v3/plugin/transform"
@@ -124,18 +125,46 @@ func tableGandiDomain() *plugin.Table {
 				Transform:   transform.FromField("Dates.RegistryEndsAt"),
 				Description: "The date the domain will end at the registry.",
 			},
+			{
+				Name:        "livedns_current",
+				Hydrate:     getLiveDNS,
+				Type:        proto.ColumnType_STRING,
+				Transform:   transform.FromField("Current"),
+				Description: "Type of nameservers currently set. classic corresponds to Gandi's classic nameservers, livedns is for the new, default, Gandi nameservers, premium_dns indicates the presence of Gandi's Premium DNS nameserver and the corresponding service subscription, and other is for custom nameservers.",
+			},
+			{
+				Name:        "nameservers",
+				Hydrate:     getLiveDNS,
+				Type:        proto.ColumnType_JSON,
+				Transform:   transform.FromField("Nameservers"),
+				Description: "List of current nameservers.",
+			},
+			{
+				Name:        "dnssec_available",
+				Hydrate:     getLiveDNS,
+				Type:        proto.ColumnType_BOOL,
+				Transform:   transform.FromField("DNSSECAvailable"),
+				Description: "Indicates if DNSSEC may be applied to the domain.",
+			},
+			{
+				Name:        "livednssec_available",
+				Hydrate:     getLiveDNS,
+				Type:        proto.ColumnType_BOOL,
+				Transform:   transform.FromField("LiveDNSSECAvailable"),
+				Description: "Indicates if DNSSEC with liveDNS may be applied to this domain.",
+			},
 		},
 	}
 }
 
 func listDomain(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData) (interface{}, error) {
 	config, err := connect(ctx, d)
-	client := gandi.NewDomainClient(*config)
-
 	if err != nil {
 		plugin.Logger(ctx).Error("gandi_domain.listDomain", "connection_error", err)
 		return nil, err
 	}
+
+	client := gandi.NewDomainClient(*config)
 	domains, err := client.ListDomains()
 	if err != nil {
 		plugin.Logger(ctx).Error("gandi_domain.listDomain", err)
@@ -145,4 +174,23 @@ func listDomain(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData)
 		d.StreamListItem(ctx, domain)
 	}
 	return nil, nil
+}
+
+func getLiveDNS(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData) (interface{}, error) {
+	plugin.Logger(ctx).Trace("getLiveDNS")
+	domain := h.Item.(domain.ListResponse)
+
+	config, err := connect(ctx, d)
+	if err != nil {
+		plugin.Logger(ctx).Error("gandi_domain.getLiveDNS", "connection_error", err)
+		return nil, err
+	}
+
+	client := gandi.NewDomainClient(*config)
+	liveDNS, err := client.GetLiveDNS(domain.FQDN)
+	if err != nil {
+		plugin.Logger(ctx).Error("gandi_domain.getLiveDNS", err)
+		return nil, err
+	}
+	return liveDNS, nil
 }
