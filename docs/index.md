@@ -1,7 +1,7 @@
 ---
 organization: francois2metz
 category: ["internet"]
-brand_color: "#060614"
+brand_color: "#6640fe"
 display_name: "Gandi"
 short_name: "Gandi"
 description: "Steampipe plugin for querying your domains and more from Gandi."
