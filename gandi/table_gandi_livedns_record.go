@@ -31,13 +31,14 @@ func tableGandiLivednsRecord() *plugin.Table {
 
 func listLivednsRecord(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData) (interface{}, error) {
 	config, err := connect(ctx, d)
-	client := gandi.NewLiveDNSClient(*config)
-
 	if err != nil {
 		plugin.Logger(ctx).Error("gandi_livedns_record.listLivednsRecord", "connection_error", err)
 		return nil, err
 	}
+
 	domain := d.KeyColumnQuals["domain"].GetStringValue()
+
+	client := gandi.NewLiveDNSClient(*config)
 	records, err := client.GetDomainRecords(domain)
 	if err != nil {
 		plugin.Logger(ctx).Error("gandi_livedns_record.listLivednsRecord", err)

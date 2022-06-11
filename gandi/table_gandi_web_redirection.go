@@ -36,13 +36,14 @@ func tableGandiWebRedirection() *plugin.Table {
 
 func listWebRedirection(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData) (interface{}, error) {
 	config, err := connect(ctx, d)
-	client := gandi.NewDomainClient(*config)
-
 	if err != nil {
 		plugin.Logger(ctx).Error("gandi_web_redirection.listWebRedirection", "connection_error", err)
 		return nil, err
 	}
+
 	domain := d.KeyColumnQuals["domain"].GetStringValue()
+
+	client := gandi.NewDomainClient(*config)
 	redirections, err := client.ListWebRedirections(domain)
 	if err != nil {
 		plugin.Logger(ctx).Error("gandi_web_redirection.listWebRedirection", err)
@@ -56,16 +57,16 @@ func listWebRedirection(ctx context.Context, d *plugin.QueryData, _ *plugin.Hydr
 
 func getWebRedirection(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData) (interface{}, error) {
 	config, err := connect(ctx, d)
-	client := gandi.NewDomainClient(*config)
 	if err != nil {
 		plugin.Logger(ctx).Error("gandi_web_redirection.getWebRedirection", "connection_error", err)
 		return nil, err
 	}
-	quals := d.KeyColumnQuals
 
+	quals := d.KeyColumnQuals
 	host := quals["host"].GetStringValue()
 	domain := quals["domain"].GetStringValue()
 
+	client := gandi.NewDomainClient(*config)
 	result, err := client.GetWebRedirection(domain, host)
 	if err != nil {
 		plugin.Logger(ctx).Error("gandi_web_redirection.getWebRedirection", err)

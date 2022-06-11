@@ -31,12 +31,12 @@ func tableGandiCertificate() *plugin.Table {
 
 func listCertificate(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData) (interface{}, error) {
 	config, err := connect(ctx, d)
-	client := gandi.NewCertificateClient(*config)
-
 	if err != nil {
 		plugin.Logger(ctx).Error("gandi_certificate.listCertificate", "connection_error", err)
 		return nil, err
 	}
+
+	client := gandi.NewCertificateClient(*config)
 	certificates, err := client.ListCertificates()
 	if err != nil {
 		plugin.Logger(ctx).Error("gandi_certificate.listCertificate", err)
@@ -50,13 +50,14 @@ func listCertificate(ctx context.Context, d *plugin.QueryData, _ *plugin.Hydrate
 
 func getCertificate(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData) (interface{}, error) {
 	config, err := connect(ctx, d)
-	client := gandi.NewCertificateClient(*config)
 	if err != nil {
 		plugin.Logger(ctx).Error("gandi_certificate.getCertificate", "connection_error", err)
 		return nil, err
 	}
+
 	id := d.KeyColumnQuals["id"].GetStringValue()
 
+	client := gandi.NewCertificateClient(*config)
 	result, err := client.GetCertificate(id)
 	if err != nil {
 		plugin.Logger(ctx).Error("gandi_certificate.getCertificate", err)

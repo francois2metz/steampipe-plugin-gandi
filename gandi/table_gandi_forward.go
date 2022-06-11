@@ -30,13 +30,14 @@ func tableGandiForward() *plugin.Table {
 
 func listForward(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData) (interface{}, error) {
 	config, err := connect(ctx, d)
-	client := gandi.NewEmailClient(*config)
-
 	if err != nil {
 		plugin.Logger(ctx).Error("gandi_forward.listForward", "connection_error", err)
 		return nil, err
 	}
+
 	domain := d.KeyColumnQuals["domain"].GetStringValue()
+
+	client := gandi.NewEmailClient(*config)
 	mailboxes, err := client.GetForwards(domain)
 	if err != nil {
 		plugin.Logger(ctx).Error("gandi_forward.listForward", err)
