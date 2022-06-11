@@ -3,7 +3,7 @@ organization: francois2metz
 category: ["internet"]
 brand_color: "#6640fe"
 display_name: "Gandi"
-short_name: "Gandi"
+short_name: "gandi"
 description: "Steampipe plugin for querying domains, mailboxes, certificates and more from Gandi."
 og_description: "Query Gandi with SQL! Open source CLI. No DB required."
 icon_url: "/images/plugins/francois2metz/gandi.svg"
