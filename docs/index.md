@@ -6,6 +6,7 @@ display_name: "Gandi"
 short_name: "gandi"
 description: "Steampipe plugin for querying domains, mailboxes, certificates and more from Gandi."
 og_description: "Query Gandi with SQL! Open source CLI. No DB required."
+og_image: "/images/plugins/francois2metz/gandi-social-graphic.png"
 icon_url: "/images/plugins/francois2metz/gandi.svg"
 ---
 
