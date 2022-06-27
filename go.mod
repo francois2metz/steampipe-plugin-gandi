@@ -2,7 +2,7 @@ module github.com/francois2metz/steampipe-plugin-gandi
 
 go 1.18
 
-require github.com/go-gandi/go-gandi v0.4.0
+require github.com/go-gandi/go-gandi v0.4.1-0.20220624135011-a2b7132862d1
 
 require (
 	github.com/acarl005/stripansi v0.0.0-20180116102854-5a71ef0e047d // indirect
