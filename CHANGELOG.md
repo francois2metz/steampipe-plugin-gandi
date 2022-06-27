@@ -1,3 +1,9 @@
+## v0.0.5 [2022-06-27]
+
+_What's new?_
+
+- Update go-gandi dependency
+
 ## v0.0.4 [2022-06-11]
 
 _What's new?_
