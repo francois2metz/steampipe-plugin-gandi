@@ -25,7 +25,7 @@ func connect(ctx context.Context, d *plugin.QueryData) (*config.Config, error) {
 	}
 
 	if key == "" {
-		return nil, errors.New("'key' must be set in the connection configuration. Edit your connection configuration file and then restart Steampipe")
+		return nil, errors.New("'key' must be set in the connection configuration. Edit your connection configuration file or set the GANDI_KEY environment variable and then restart Steampipe")
 	}
 
 	config := &config.Config{APIKey: key}
