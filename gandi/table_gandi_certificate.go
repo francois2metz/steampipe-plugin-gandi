@@ -25,6 +25,7 @@ func tableGandiCertificate() *plugin.Table {
 			{Name: "cn", Type: proto.ColumnType_STRING, Transform: transform.FromField("CN"), Description: "Common Name."},
 			{Name: "package_name", Type: proto.ColumnType_STRING, Transform: transform.FromField("Package.Name"), Description: ""},
 			{Name: "status", Type: proto.ColumnType_STRING, Description: "One of: 'pending', 'valid', 'revoked', 'replaced', 'replaced_rev', 'expired'."},
+			{Name: "expiration", Type: proto.ColumnType_STRING, Transform: transform.FromField("Dates.EndsAt"), Description: "Expiration date"},
 		},
 	}
 }
