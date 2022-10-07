@@ -177,7 +177,6 @@ func listDomain(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData)
 }
 
 func getLiveDNS(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData) (interface{}, error) {
-	plugin.Logger(ctx).Trace("getLiveDNS")
 	domain := h.Item.(domain.ListResponse)
 
 	config, err := connect(ctx, d)
