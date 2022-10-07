@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/go-gandi/go-gandi v0.4.1-0.20220624135011-a2b7132862d1
-	github.com/turbot/steampipe-plugin-sdk/v4 v4.1.5
+	github.com/turbot/steampipe-plugin-sdk/v4 v4.1.7
 )
 
 require (
@@ -31,7 +31,7 @@ require (
 	github.com/golang/glog v1.0.0 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.7.0 // indirect
-	github.com/hashicorp/go-hclog v1.2.0 // indirect
+	github.com/hashicorp/go-hclog v1.2.2 // indirect
 	github.com/hashicorp/go-plugin v1.4.4 // indirect
 	github.com/hashicorp/go-version v1.6.0 // indirect
 	github.com/hashicorp/hcl/v2 v2.12.0 // indirect
