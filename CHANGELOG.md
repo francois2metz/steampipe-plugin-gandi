@@ -1,3 +1,10 @@
+## v0.1.1 [2022-10-14]
+
+_What's new?_
+
+- Update SDK to 4.1.7
+- Add `expiration` column to the `gandi_certificate` table, thanks @jdenoy.
+
 ## v0.1.0 [2022-09-01]
 
 _What's new?_
