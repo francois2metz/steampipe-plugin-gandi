@@ -1,3 +1,5 @@
+![Steampipe + Gandi](docs/gandi-social-graphic.png)
+
 # Steampipe plugin for Gandi
 
 Use SQL to query your domains and more from [Gandi][].
