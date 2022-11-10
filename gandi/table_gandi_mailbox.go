@@ -31,6 +31,7 @@ func tableGandiMailbox() *plugin.Table {
 			{Name: "login", Type: proto.ColumnType_STRING, Description: "Mailbox login."},
 			{Name: "mailbox_type", Type: proto.ColumnType_STRING, Description: "The type of mailbox, one of: 'standard', 'premium', 'free'."},
 			{Name: "quota_used", Type: proto.ColumnType_INT, Description: "Quota used."},
+			{Name: "antispam", Type: proto.ColumnType_BOOL, Description: "Antispam is enabled."},
 		},
 	}
 }
