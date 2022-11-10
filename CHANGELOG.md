@@ -1,3 +1,10 @@
+## v0.1.2 [2022-11-10]
+
+_What's new?_
+
+- Update SDK to 4.1.8
+- Add `antispam` column to the `gandi_mailbox` table.
+
 ## v0.1.1 [2022-10-14]
 
 _What's new?_
