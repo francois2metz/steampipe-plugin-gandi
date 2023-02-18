@@ -4,9 +4,9 @@ import (
 	"context"
 
 	"github.com/go-gandi/go-gandi"
-	"github.com/turbot/steampipe-plugin-sdk/v4/grpc/proto"
-	"github.com/turbot/steampipe-plugin-sdk/v4/plugin"
-	"github.com/turbot/steampipe-plugin-sdk/v4/plugin/transform"
+	"github.com/turbot/steampipe-plugin-sdk/v5/grpc/proto"
+	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
+	"github.com/turbot/steampipe-plugin-sdk/v5/plugin/transform"
 )
 
 func tableGandiLivednsRecord() *plugin.Table {
@@ -36,7 +36,7 @@ func listLivednsRecord(ctx context.Context, d *plugin.QueryData, _ *plugin.Hydra
 		return nil, err
 	}
 
-	domain := d.KeyColumnQuals["domain"].GetStringValue()
+	domain := d.EqualsQuals["domain"].GetStringValue()
 
 	client := gandi.NewLiveDNSClient(*config)
 	records, err := client.GetDomainRecords(domain)

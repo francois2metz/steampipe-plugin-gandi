@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/go-gandi/go-gandi/config"
-	"github.com/turbot/steampipe-plugin-sdk/v4/plugin"
+	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
 )
 
 func connect(ctx context.Context, d *plugin.QueryData) (*config.Config, error) {

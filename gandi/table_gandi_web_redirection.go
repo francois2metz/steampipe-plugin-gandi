@@ -4,9 +4,9 @@ import (
 	"context"
 
 	"github.com/go-gandi/go-gandi"
-	"github.com/turbot/steampipe-plugin-sdk/v4/grpc/proto"
-	"github.com/turbot/steampipe-plugin-sdk/v4/plugin"
-	"github.com/turbot/steampipe-plugin-sdk/v4/plugin/transform"
+	"github.com/turbot/steampipe-plugin-sdk/v5/grpc/proto"
+	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
+	"github.com/turbot/steampipe-plugin-sdk/v5/plugin/transform"
 )
 
 func tableGandiWebRedirection() *plugin.Table {
@@ -41,7 +41,7 @@ func listWebRedirection(ctx context.Context, d *plugin.QueryData, _ *plugin.Hydr
 		return nil, err
 	}
 
-	domain := d.KeyColumnQuals["domain"].GetStringValue()
+	domain := d.EqualsQuals["domain"].GetStringValue()
 
 	client := gandi.NewDomainClient(*config)
 	redirections, err := client.ListWebRedirections(domain)
@@ -62,7 +62,7 @@ func getWebRedirection(ctx context.Context, d *plugin.QueryData, h *plugin.Hydra
 		return nil, err
 	}
 
-	quals := d.KeyColumnQuals
+	quals := d.EqualsQuals
 	host := quals["host"].GetStringValue()
 	domain := quals["domain"].GetStringValue()
 

@@ -4,9 +4,9 @@ import (
 	"context"
 
 	"github.com/go-gandi/go-gandi"
-	"github.com/turbot/steampipe-plugin-sdk/v4/grpc/proto"
-	"github.com/turbot/steampipe-plugin-sdk/v4/plugin"
-	"github.com/turbot/steampipe-plugin-sdk/v4/plugin/transform"
+	"github.com/turbot/steampipe-plugin-sdk/v5/grpc/proto"
+	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
+	"github.com/turbot/steampipe-plugin-sdk/v5/plugin/transform"
 )
 
 func tableGandiForward() *plugin.Table {
@@ -35,7 +35,7 @@ func listForward(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData
 		return nil, err
 	}
 
-	domain := d.KeyColumnQuals["domain"].GetStringValue()
+	domain := d.EqualsQuals["domain"].GetStringValue()
 
 	client := gandi.NewEmailClient(*config)
 	mailboxes, err := client.GetForwards(domain)
