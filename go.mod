@@ -3,7 +3,7 @@ module github.com/francois2metz/steampipe-plugin-gandi
 go 1.19
 
 require (
-	github.com/go-gandi/go-gandi v0.5.1-0.20221109171918-33c4a29ef16d
+	github.com/go-gandi/go-gandi v0.6.0
 	github.com/turbot/steampipe-plugin-sdk/v5 v5.1.4
 )
 

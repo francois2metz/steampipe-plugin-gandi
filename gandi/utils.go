@@ -28,7 +28,7 @@ func connect(ctx context.Context, d *plugin.QueryData) (*config.Config, error) {
 		return nil, errors.New("'key' must be set in the connection configuration. Edit your connection configuration file or set the GANDI_KEY environment variable and then restart Steampipe")
 	}
 
-	config := &config.Config{APIKey: key}
+	config := &config.Config{APIKey: key, Timeout: -1}
 
 	// Save to cache
 	d.ConnectionManager.Cache.Set(cacheKey, config)
