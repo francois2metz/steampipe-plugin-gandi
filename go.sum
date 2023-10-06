@@ -290,8 +290,8 @@ github.com/gertd/go-pluralize v0.2.1/go.mod h1:rbYaKDbsXxmRfr8uygAEKhOWsjyrrqrkH
 github.com/ghodss/yaml v0.0.0-20150909031657-73d445a93680/go.mod h1:4dBDuWmgqj2HViK6kFavaiC9ZROes6MMH2rRYeMEF04=
 github.com/ghodss/yaml v1.0.0 h1:wQHKEahhL6wmXdzwWG11gIVCkOv05bNOh+Rxn0yngAk=
 github.com/ghodss/yaml v1.0.0/go.mod h1:4dBDuWmgqj2HViK6kFavaiC9ZROes6MMH2rRYeMEF04=
-github.com/go-gandi/go-gandi v0.6.0 h1:RgFoevggRRp7hF9XsOmWmtwbUg2axhe2ygEdd6Mtstc=
-github.com/go-gandi/go-gandi v0.6.0/go.mod h1:9NoYyfWCjFosClPiWjkbbRK5UViaZ4ctpT8/pKSSFlw=
+github.com/go-gandi/go-gandi v0.6.1-0.20231006152041-4f470ed86cce h1:BNSjCLkSTqAxv5MXWYiUOsH6HnTKcIYoUCHMz3Vhwts=
+github.com/go-gandi/go-gandi v0.6.1-0.20231006152041-4f470ed86cce/go.mod h1:9NoYyfWCjFosClPiWjkbbRK5UViaZ4ctpT8/pKSSFlw=
 github.com/go-gl/glfw v0.0.0-20190409004039-e6da0acd62b1/go.mod h1:vR7hzQXu2zJy9AVAgeJqvqgH9Q5CA+iKCZ2gyEVpxRU=
 github.com/go-gl/glfw/v3.3/glfw v0.0.0-20191125211704-12ad95a8df72/go.mod h1:tQ2UAYgL5IevRw8kRxooKSPJfGvJ9fJQFa0TUsXzTg8=
 github.com/go-gl/glfw/v3.3/glfw v0.0.0-20200222043503-6f7a984d4dc4/go.mod h1:tQ2UAYgL5IevRw8kRxooKSPJfGvJ9fJQFa0TUsXzTg8=

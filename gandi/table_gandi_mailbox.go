@@ -32,6 +32,7 @@ func tableGandiMailbox() *plugin.Table {
 			{Name: "mailbox_type", Type: proto.ColumnType_STRING, Description: "The type of mailbox, one of: 'standard', 'premium', 'free'."},
 			{Name: "quota_used", Type: proto.ColumnType_INT, Description: "Quota used."},
 			{Name: "antispam", Type: proto.ColumnType_BOOL, Description: "Antispam is enabled."},
+			{Name: "expires_at", Type: proto.ColumnType_TIMESTAMP, Description: "Expiry date of the mailbox."},
 		},
 	}
 }
