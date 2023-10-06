@@ -1,3 +1,10 @@
+## v0.2.0 [2023-10-06]
+
+_What's new?_
+
+- Update SDK to 5.6.2
+- Add `expired_at` column to the `gandi_mailbox` table.
+
 ## v0.1.2 [2022-11-10]
 
 _What's new?_
