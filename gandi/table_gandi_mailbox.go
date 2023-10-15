@@ -25,14 +25,14 @@ func tableGandiMailbox() *plugin.Table {
 			{Name: "domain", Type: proto.ColumnType_STRING, Transform: transform.FromQual("domain"), Description: "Domain name."},
 
 			{Name: "id", Type: proto.ColumnType_STRING, Description: "Unique id of the mailbox."},
-			{Name: "address", Type: proto.ColumnType_STRING, Description: "Full email address."},
 
+			{Name: "address", Type: proto.ColumnType_STRING, Description: "Full email address."},
+			{Name: "antispam", Type: proto.ColumnType_BOOL, Description: "Antispam is enabled."},
+			{Name: "expires_at", Type: proto.ColumnType_TIMESTAMP, Description: "Expiry date of the mailbox."},
 			{Name: "href", Type: proto.ColumnType_STRING, Description: "Link to mailbox details."},
 			{Name: "login", Type: proto.ColumnType_STRING, Description: "Mailbox login."},
 			{Name: "mailbox_type", Type: proto.ColumnType_STRING, Description: "The type of mailbox, one of: 'standard', 'premium', 'free'."},
 			{Name: "quota_used", Type: proto.ColumnType_INT, Description: "Quota used."},
-			{Name: "antispam", Type: proto.ColumnType_BOOL, Description: "Antispam is enabled."},
-			{Name: "expires_at", Type: proto.ColumnType_TIMESTAMP, Description: "Expiry date of the mailbox."},
 		},
 	}
 }
