@@ -1,3 +1,11 @@
+## v0.3.0 [2023-11-10]
+
+_What's new?_
+
+- Update SDK to 5.6.3
+- Update to go 1.21
+- Add `autorenew_duration`, `autorenew_duration_type` and `autorenew_enabled` columns to the `gandi_mailbox` table.
+
 ## v0.2.0 [2023-10-06]
 
 _What's new?_
