@@ -28,6 +28,9 @@ func tableGandiMailbox() *plugin.Table {
 
 			{Name: "address", Type: proto.ColumnType_STRING, Description: "Full email address."},
 			{Name: "antispam", Type: proto.ColumnType_BOOL, Description: "Antispam is enabled."},
+			{Name: "autorenew_duration", Type: proto.ColumnType_INT, Transform: transform.FromField("Autorenew.Duration"), Description: "Duration for autorenew."},
+			{Name: "autorenew_duration_type", Type: proto.ColumnType_STRING, Transform: transform.FromField("Autorenew.DurationType"), Description: "Type of duration ('m' for month)."},
+			{Name: "autorenew_enabled", Type: proto.ColumnType_BOOL, Transform: transform.FromField("Autorenew.Enabled"), Description: "Specify if autorenew is enabled on this mailbox."},
 			{Name: "expires_at", Type: proto.ColumnType_TIMESTAMP, Description: "Expiry date of the mailbox."},
 			{Name: "href", Type: proto.ColumnType_STRING, Description: "Link to mailbox details."},
 			{Name: "login", Type: proto.ColumnType_STRING, Description: "Mailbox login."},
