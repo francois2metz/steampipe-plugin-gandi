@@ -17,6 +17,7 @@ func connect(ctx context.Context, d *plugin.QueryData) (*config.Config, error) {
 	}
 
 	key := os.Getenv("GANDI_KEY")
+	token := os.Getenv("GANDI_TOKEN")
 
 	gandiConfig := GetConfig(d.Connection)
 
@@ -24,11 +25,19 @@ func connect(ctx context.Context, d *plugin.QueryData) (*config.Config, error) {
 		key = *gandiConfig.Key
 	}
 
-	if key == "" {
-		return nil, errors.New("'key' must be set in the connection configuration. Edit your connection configuration file or set the GANDI_KEY environment variable and then restart Steampipe")
+	if gandiConfig.Token != nil {
+		token = *gandiConfig.Token
 	}
 
-	config := &config.Config{APIKey: key, Timeout: -1}
+	if key != "" {
+		plugin.Logger(ctx).Error("gandi", "The api key is deprecated by Gandi. Please upgrade topersonal access token.")
+	}
+
+	if key == "" && token == "" {
+		return nil, errors.New("'token' or 'key' must be set in the connection configuration. Edit your connection configuration file or set the GANDI_TOKEN/GANDI_KEY environment variable and then restart Steampipe")
+	}
+
+	config := &config.Config{APIKey: key, PersonalAccessToken: token, Timeout: -1}
 
 	// Save to cache
 	d.ConnectionManager.Cache.Set(cacheKey, config)

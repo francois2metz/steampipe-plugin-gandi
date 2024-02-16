@@ -6,11 +6,15 @@ import (
 )
 
 type gandiConfig struct {
-	Key *string `cty:"key"`
+	Key   *string `cty:"key"`
+	Token *string `cty:"token"`
 }
 
 var ConfigSchema = map[string]*schema.Attribute{
 	"key": {
+		Type: schema.TypeString,
+	},
+	"token": {
 		Type: schema.TypeString,
 	},
 }
