@@ -50,6 +50,15 @@ Download and install the latest Gandi plugin:
 steampipe plugin install francois2metz/gandi
 ```
 
+### Credentials
+
+| Item        | Description                                                                                                                                                                            |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Credentials | Gandi requires a [token](https://admin.gandi.net/organizations/account/pat).                                                                                                           |
+| Radius      | Each connection represents a single Gandi account.                                                                                                                                     |
+| Permissions | Tokens have the same permissions as the user who creates them. The personal access token may have access to different permissions.                                                     |
+| Resolution  | 1. Credentials explicitly set in a steampipe config file (`~/.steampipe/config/gandi.spc`)<br />2. Credentials specified in environment variables, e.g., `GANDI_TOKEN` or `GANDI_KEY`. |
+
 ### Configuration
 
 Installing the latest gandi plugin will create a config file (`~/.steampipe/config/gandi.spc`) with a single connection named `gandi`:
@@ -70,10 +79,15 @@ connection "gandi" {
 }
 ```
 
-You can also use environment variables:
+### Credentials from Environment Variables
 
-- `GANDI_TOKEN`: Your Personal access token
-- `GANDI_KEY`: Your Gandi API Key
+The Gandi plugin will use the following environment variables to obtain credentials **only if other argument (`token` or `key`) is not specified** in the connection:
+
+```sh
+export GANDI_TOKEN=YOUR_GANDI_TOKEN
+# DEPRECATED, use personal access token
+export GANDI_KEY=YOUR_GANDI_API_KEY
+```
 
 ## Get Involved
 
