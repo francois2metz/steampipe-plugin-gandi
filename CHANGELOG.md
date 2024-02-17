@@ -1,3 +1,10 @@
+## v0.4.0 [2024-02-17]
+
+_What's new?_
+
+- Add support for Gandi Personal Access Token. The api key is now deprecated.
+- Update SDK to 5.8.0
+
 ## v0.3.0 [2023-11-10]
 
 _What's new?_
