@@ -6,7 +6,7 @@ toolchain go1.22.6
 
 require (
 	github.com/go-gandi/go-gandi v0.7.0
-	github.com/turbot/steampipe-plugin-sdk/v5 v5.11.0
+	github.com/turbot/steampipe-plugin-sdk/v5 v5.11.1
 )
 
 require (
