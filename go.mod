@@ -1,8 +1,6 @@
 module github.com/francois2metz/steampipe-plugin-gandi
 
-go 1.22.4
-
-toolchain go1.22.6
+go 1.23.6
 
 require (
 	github.com/go-gandi/go-gandi v0.7.0
