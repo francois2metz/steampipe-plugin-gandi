@@ -73,9 +73,6 @@ connection "gandi" {
     #  - See and renew domain names
     #  - See & download SSL certificates
     # token = "YOUR_GANDI_TOKEN"
-
-    # DEPRECATED: The API Key (get it on your account: https://account.gandi.net/)
-    # key = "YOUR_GANDI_API_KEY"
 }
 ```
 
@@ -85,8 +82,6 @@ The Gandi plugin will use the following environment variables to obtain credenti
 
 ```sh
 export GANDI_TOKEN=YOUR_GANDI_TOKEN
-# DEPRECATED, use personal access token
-export GANDI_KEY=YOUR_GANDI_API_KEY
 ```
 
 ## Get Involved
