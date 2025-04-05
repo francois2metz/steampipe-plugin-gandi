@@ -1,3 +1,11 @@
+## v1.0.0 [2025-04-05]
+
+_What's new?_
+
+- **[Breaking change]** Remove support for the deprecated api key. You must use Persona Access Token.
+- Ignore 404 and 403 errors to work with aggregate connections.
+- Update steampipe sdk to 5.11.5.
+
 ## v0.5.0 [2025-03-01]
 
 _What's new?_
