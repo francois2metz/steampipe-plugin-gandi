@@ -12,7 +12,7 @@ func Plugin(ctx context.Context) *plugin.Plugin {
 		Name:             "steampipe-plugin-gandi",
 		DefaultTransform: transform.FromGo().NullIfZero(),
 		DefaultIgnoreConfig: &plugin.IgnoreConfig{
-			ShouldIgnoreErrorFunc: isNotFoundError,
+			ShouldIgnoreErrorFunc: shouldIgnoreError,
 		},
 		ConnectionConfigSchema: &plugin.ConnectionConfigSchema{
 			NewInstance: ConfigInstance,

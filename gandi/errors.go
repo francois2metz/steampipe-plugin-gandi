@@ -8,7 +8,11 @@ import (
 	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
 )
 
-func isNotFoundError(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData, err error) bool {
+func shouldIgnoreError(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData, err error) bool {
+	if err.Error() == "Response body is not json for status 403" {
+		return true
+	}
+
 	requestError, ok := err.(*ganditypes.RequestError)
 	if !ok {
 		return false
