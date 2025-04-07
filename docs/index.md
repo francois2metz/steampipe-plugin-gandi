@@ -78,7 +78,7 @@ connection "gandi" {
 
 ### Credentials from Environment Variables
 
-The Gandi plugin will use the following environment variables to obtain credentials **only if other argument (`token` or `key`) is not specified** in the connection:
+The Gandi plugin will use the following environment variable to obtain credentials **only if other argument (`token`) is not specified** in the connection:
 
 ```sh
 export GANDI_TOKEN=YOUR_GANDI_TOKEN
