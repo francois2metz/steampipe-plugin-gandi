@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	ganditypes "github.com/go-gandi/go-gandi/types"
-	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
+	"github.com/turbot/steampipe-plugin-sdk/v6/plugin"
 )
 
 func shouldIgnoreError(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData, err error) bool {

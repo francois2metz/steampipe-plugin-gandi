@@ -1,8 +1,8 @@
 package gandi
 
 import (
-	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
-	"github.com/turbot/steampipe-plugin-sdk/v5/plugin/schema"
+	"github.com/turbot/steampipe-plugin-sdk/v6/plugin"
+	"github.com/turbot/steampipe-plugin-sdk/v6/plugin/schema"
 )
 
 type gandiConfig struct {
@@ -21,9 +21,9 @@ func ConfigInstance() interface{} {
 
 // GetConfig :: retrieve and cast connection config from query data
 func GetConfig(connection *plugin.Connection) gandiConfig {
-	if connection == nil || connection.Config == nil {
+	if connection == nil || connection.GetConfig() == nil {
 		return gandiConfig{}
 	}
-	config, _ := connection.Config.(gandiConfig)
+	config, _ := connection.GetConfig().(gandiConfig)
 	return config
 }
