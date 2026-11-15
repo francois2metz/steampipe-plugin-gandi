@@ -12,7 +12,7 @@ import (
 func connect(ctx context.Context, d *plugin.QueryData) (*config.Config, error) {
 	// get gandi client from cache
 	cacheKey := "gandi"
-	if cachedData, ok := d.ConnectionManager.Cache.Get(cacheKey); ok {
+	if cachedData, ok := d.ConnectionCache.Get(ctx, cacheKey); ok {
 		return cachedData.(*config.Config), nil
 	}
 
@@ -31,7 +31,10 @@ func connect(ctx context.Context, d *plugin.QueryData) (*config.Config, error) {
 	config := &config.Config{PersonalAccessToken: token, Timeout: -1}
 
 	// Save to cache
-	d.ConnectionManager.Cache.Set(cacheKey, config)
+	err := d.ConnectionCache.Set(ctx, cacheKey, config)
+	if err != nil {
+		return nil, err
+	}
 
 	return config, nil
 }
